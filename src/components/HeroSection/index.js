@@ -53,15 +53,15 @@ const HeroSection = () => {
                         <SubTitle> {Bio.description[0]}<br/>{Bio.description[1]}</SubTitle>
                         
                         <SocialContainer>
-                            <ReseauSocieux href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+                            <ReseauSocieux href="https://github.com/NajouaBentaher" target="_blank" rel="noopener noreferrer">
                                 <FaGithub size={28} />
                             </ReseauSocieux>
 
-                            <ReseauSocieux href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                            <ReseauSocieux href="https://www.linkedin.com/in/najoua-bentaher/" target="_blank" rel="noopener noreferrer">
                                 <FaLinkedin size={28} />
                             </ReseauSocieux>
 
-                            <ReseauSocieux href="mailto:yourmail@gmail.com">
+                            <ReseauSocieux href="mailto:najwabentaher34@gmail.com">
                                 <FaEnvelope size={28} />
                             </ReseauSocieux>
                         </SocialContainer>

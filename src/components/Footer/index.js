@@ -42,7 +42,7 @@ function Footer() {
     <FooterContainer>
       <FooterWrapper>
         <Desc>
-          Made with ❤️ by me 🤞​🥰​ 
+          Made with ❤️ by me 🤞​​ 
           <Copyright>
             &copy; {new Date().getFullYear()}
           </Copyright>
