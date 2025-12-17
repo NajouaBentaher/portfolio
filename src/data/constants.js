@@ -276,8 +276,8 @@ export const certificates = [
   {
     id: 6,
     title: "Astronomer Certification DAG Authoring for Apache Airflow 3",
-    issuer: "October 2025",
-    date: "June 2024 - July 2024",
+    issuer: "Astronomer",
+    date: "October 2025",
     description: "Certification demonstrating proficiency in authoring, optimizing, and managing Airflow DAGs using best practices for scalable and reliable workflow orchestration.",
     img: "blob.png",
   },
