@@ -8,6 +8,10 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import { education } from '../../data/constants';
 import EducationCard from '../Cards/EducationCard';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+// const isMobile = useMediaQuery('(max-width:768px)');
+const isMobile = window.innerWidth <= 768;
 
 const Container = styled.div`
     display: flex;
@@ -97,40 +101,46 @@ const NumberDot = styled.div`
 
 
 const index = () => {
+    const isMobile = window.innerWidth <= 768;
+
     return (
         <Container id="education">
             <Wrapper>
                 <Title>Education</Title>
                 <Desc>
-                    My education has been a journey of self-discovery and growth. My educational details are as follows.
+                    My education has been a journey of self-discovery and growth.
                 </Desc>
-                <TimelineSection>
-                    <Timeline position="alternate">
-                        {education.map((item, index) => {
-                            const number = education.length - index;  // reverse number
-                            return (
-                                <TimelineItem key={index}>
-                                    <TimelineSeparator>
-                                        <NumberDot>{number}</NumberDot>
-                                        {index !== education.length - 1 && (
-                                            <TimelineConnector style={{ background: '#854CE6' }} />
-                                        )}
-                                    </TimelineSeparator>
 
-                                    <TimelineContent
-                                        style={{ width: "1100px" }}
-                                        sx={{ py: '12px', px: 2 }}
-                                    >
-                                        <EducationCard education={item} />
-                                    </TimelineContent>
-                                </TimelineItem>
-                            );
-                        })}
-                    </Timeline>
+                <TimelineSection>
+                    {isMobile ? (
+                        education.map((item, index) => (
+                            <EducationCard key={index} education={item} />
+                        ))
+                    ) : (
+                        <Timeline position="alternate">
+                            {education.map((item, index) => {
+                                const number = education.length - index;
+                                return (
+                                    <TimelineItem key={index}>
+                                        <TimelineSeparator>
+                                            <NumberDot>{number}</NumberDot>
+                                            {index !== education.length - 1 && (
+                                                <TimelineConnector />
+                                            )}
+                                        </TimelineSeparator>
+                                        <TimelineContent>
+                                            <EducationCard education={item} />
+                                        </TimelineContent>
+                                    </TimelineItem>
+                                );
+                            })}
+                        </Timeline>
+                    )}
                 </TimelineSection>
             </Wrapper>
         </Container>
-    )
-}
+    );
+};
+
 
 export default index
