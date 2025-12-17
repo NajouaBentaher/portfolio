@@ -1,6 +1,6 @@
 export const Bio = {
   name: "Najoua Bentaher",
-  roles: ["Full Stack Developer", "Specializing on Web Applications", "Data Engireer","Creating Innovative Solutions", "Cloud Specialist", "Programmer"],
+  roles: ["Full Stack Developer", "Specializing on Web Applications", "Data Engireer","Creating Innovative Solutions", "Programmer"],
   description:[
     "Passionate Full Stack Developer who enjoys building clean and efficient web applications. curious about learning new skills, tools and concepts.",
     "I have worked on both solo projects and collaborative teams, strengthening my communication and problem-solving skills."],
