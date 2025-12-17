@@ -1,0 +1,31 @@
+export const darkTheme = {
+  bg: "#0F0F1E",
+  bgLight: "#1A1A2E",
+  primary: "#6C63FF",
+  secondary: "#FF6584",
+  text_primary: "#F2F3F4",
+  text_secondary: "#B8B9BA",
+  card: "#16162A",
+  card_light: "#1E1E30",
+  button: "#6C63FF",
+  white: "#FFFFFF",
+  black: "#000000",
+  shadow: "rgba(108, 99, 255, 0.2)",
+  accent: "#00D9FF",
+}
+
+export const lightTheme = {
+  bg: "#FFFFFF",
+  bgLight: "#F8F9FA",
+  primary: "#6C63FF",
+  secondary: "#FF6584",
+  text_primary: "#1A1A2E",
+  text_secondary: "#5A5A6E",
+  card: "#FFFFFF",
+  card_light: "#F8F9FA",
+  button: "#6C63FF",
+  white: "#FFFFFF",
+  black: "#000000",
+  shadow: "rgba(108, 99, 255, 0.15)",
+  accent: "#00D9FF",
+}
