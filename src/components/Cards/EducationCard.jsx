@@ -1,153 +1,112 @@
 import React from 'react'
 import styled from 'styled-components'
+import Timeline from '@mui/lab/Timeline'
+import TimelineItem from '@mui/lab/TimelineItem'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineContent from '@mui/lab/TimelineContent'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
-const Document = styled.img`
-    display: none;
-    height: 70px;
-    width: fit-content;
-    background-color: #000;
-    border-radius: 10px;
-    &:hover{
-        cursor: pointer;
-        opacity: 0.8;
-    }
-`
+import { education } from '../../data/constants'
+import EducationCard from '../Cards/EducationCard'
 
-const Description = styled.div`
-    width: 100%;
-    font-size: 15px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_primary + 99};
-    margin-bottom: 10px;
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
+/* ---------------- STYLES ---------------- */
 
-const Span = styled.span`
-overflow: hidden;
-display: -webkit-box;
-max-width: 100%;
--webkit-line-clamp: 4;
--webkit-box-orient: vertical;
-text-overflow: ellipsis;
-`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
+`;
 
-const Card = styled.div`
-    // width: 650px;
-    text-align: left;
-    border-radius: 10px;
-    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-    padding: 12px 16px;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: all 0.3s ease-in-out;
-    &:hover{
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
-        transform: translateY(-5px);
-    }
-    @media only screen and (max-width: 768px){
-        padding: 10px;
-        gap: 8px;
-        width: 300px;
-    }
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1350px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+`;
 
-    &:hover ${Document}{
-        display: flex;
-    }
+const Title = styled.h2`
+  font-size: 42px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+  text-align: center;
 
-    &:hover ${Span}{
-        overflow: visible;
-        -webkit-line-clamp: unset;
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+`;
 
-    }
-    border: 0.1px solid #854CE6;
-`
+const Desc = styled.p`
+  font-size: 18px;
+  max-width: 600px;
+  text-align: center;
+  color: ${({ theme }) => theme.text_secondary};
 
-const Top = styled.div`
-    width: 100%;
-    display: flex;
-    gap: 12px
-`
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
 
-const Image = styled.img`
-    height: 50px;
-    background-color: #000;
-    border-radius: 10px;
-    margin-top: 4px;
-    @media only screen and (max-width: 768px){
-        height: 40px;
-    }
-`
+const TimelineSection = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+`;
 
-const Body = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
-`
+const NumberDot = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid ${({ theme }) => theme.text_primary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  background: ${({ theme }) => theme.card};
+  color: ${({ theme }) => theme.text_primary};
+`;
 
+/* ---------------- COMPONENT ---------------- */
 
-const Name = styled.div`
-    font-size: 18px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_primary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 14px;
-    }
-`
+const Education = () => {
+  const isMobile = useMediaQuery('(max-width:768px)');
 
-const Degree = styled.div`
-    font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
+  return (
+    <Container id="education">
+      <Wrapper>
+        <Title>Education</Title>
+        <Desc>
+          My education has been a journey of self-discovery and growth.
+        </Desc>
 
-const Date = styled.div`
-    font-size: 14px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_secondary + 80};
-    @media only screen and (max-width: 768px){
-        font-size: 10px;
-    }
-`
+        <TimelineSection>
+          {isMobile ? (
+            education.map((item, index) => (
+              <EducationCard key={index} education={item} />
+            ))
+          ) : (
+            <Timeline position="alternate">
+              {education.map((item, index) => (
+                <TimelineItem key={index}>
+                  <TimelineSeparator>
+                    <NumberDot>{education.length - index}</NumberDot>
+                    {index !== education.length - 1 && <TimelineConnector />}
+                  </TimelineSeparator>
+                  <TimelineContent>
+                    <EducationCard education={item} />
+                  </TimelineContent>
+                </TimelineItem>
+              ))}
+            </Timeline>
+          )}
+        </TimelineSection>
+      </Wrapper>
+    </Container>
+  );
+};
 
-const Grade = styled.div`
-    font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
-
-
-
-const EducationCard = ({ education }) => {
-    return (
-        <Card>
-            <Date>{education.date}</Date>
-            <Top>
-                
-                <Image src={education.img} />
-                <Body>
-                    <Name>{education.school}</Name>
-                    <Degree>{education.degree}</Degree>
-                    
-                </Body>
-            </Top>
-            
-            <Description>
-                <Span>{education.desc}</Span>
-            </Description>
-        </Card>
-    )
-}
-
-export default EducationCard
+export default Education;
