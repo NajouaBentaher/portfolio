@@ -329,16 +329,16 @@ export const projects = [
     tags: ["Python", "Docker", "Roboflow", "Hugginface", "Flask", "Selenium", "Tensrflow","Google Colab"],
     github: "https://github.com/NajouaBentaher/PFE-DCESS-2024-2025-2",
   },
-  {
-    id: 9,
-    title: "Management of a supermarket",
-    date: "2025",
-    description:
-      "Comprehensive system for managing supermarket operations including inventory, sales, and customer data.",
-    image: "/Screenshot from 2024-10-16 13-08-43.png",
-    tags: ["Power BI"],
-    github: "https://github.com/NajouaBentaher/PFE-DCESS-2024-2025-2",
-  },
+  // {
+  //   id: 9,
+  //   title: "Management of a supermarket",
+  //   date: "2025",
+  //   description:
+  //     "Comprehensive system for managing supermarket operations including inventory, sales, and customer data.",
+  //   image: "/Screenshot from 2024-10-16 13-08-43.png",
+  //   tags: ["Power BI"],
+  //   github: "https://github.com/NajouaBentaher/PFE-DCESS-2024-2025-2",
+  // },
   {
     id: 9,
     title: "Delivery Tracking System",
