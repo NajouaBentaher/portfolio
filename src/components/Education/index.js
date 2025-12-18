@@ -85,10 +85,12 @@ const Education = () => {
 
         <TimelineSection>
           {isMobile ? (
+            // ✅ Mobile: simple stacked cards
             education.map((item, index) => (
               <EducationCard key={index} education={item} />
             ))
           ) : (
+            // ✅ Desktop & Tablet: timeline
             <Timeline position="alternate">
               {education.map((item, index) => (
                 <TimelineItem key={index}>
